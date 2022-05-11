@@ -1,0 +1,23 @@
+apiVersion : apps/v1
+kind : Deployment
+metadata : 
+  name : parichay-fe-nginxapp-deployment
+  labels : 
+    app : parichay-fe-nginxapp
+    tier : frontend
+spec : 
+  replicas : 3
+  selector : 
+    matchLabels : 
+      app : parichay-fe-nginxapp
+  template : 
+    metadata : 
+      labels :
+        app : parichay-fe-nginxapp
+        tier : frontend
+    spec :
+      containers : 
+        - name : parichay-fe-nginxapp-container
+          image : stacksimplify/kube-frontend-nginx:1.0.0
+          ports :
+            - containerPort : 80

@@ -1,0 +1,21 @@
+apiVersion : apps/v1
+kind : Deployment
+metadata : 
+  name : parichay-app3-deploy
+spec : 
+  replicas : 3
+  selector : 
+    matchLabels : 
+      app : parichay-app3
+  template :
+    metadata :
+      name : parichay-app3-pod
+      labels : 
+        app : parichay-app3
+      namespace : 
+    spec : 
+      containers : 
+      - name : parichay-app3-container
+        image : stacksimplify/kubenginx:3.0.0
+        ports : 
+          - containerPort : 80
